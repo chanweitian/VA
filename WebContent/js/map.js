@@ -143,7 +143,7 @@ var yearAxis = d3.svg.axis()
   .orient("top")
   .ticks(timelineWidth / 70)
   .tickSize(10, 5, timelineHeight)
-  .tickSubdivide(2.5)
+  .tickSubdivide(1)
   .tickPadding(5)
   .tickFormat(function(d) { return d; });
 
@@ -338,7 +338,7 @@ function updateChoropleth() {
 
       var m = diseaseByCountry[d.id];
       if (m !== undefined) {
-        var val = m[2011];
+        var val = m[selectedYear];
         if (!isNaN(val) && (val > 0 /* for log scale to work*/)) return selectedColor(val);
       }
 
@@ -508,7 +508,7 @@ function updateDetails() {
     var m = diseaseByCountry[iso3];
     var val = "N/A";
     if (m !== undefined) {
-        val = parseFloat(m[2011]).toFixed(2);   
+        val = parseFloat(m[selectedYear]).toFixed(2);   
     }
 
 
