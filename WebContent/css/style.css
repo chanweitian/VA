@@ -1,0 +1,242 @@
+body {
+     font-family: 'Lato',Helvetica, sans-serif; text-shadow: 1px 1px 1px #111;
+     font-weight: 300;
+     padding:0;
+     margin:0;
+     color: #ffffff;
+     background-color: #111;
+ }
+
+
+ #details {
+      position: absolute;
+      
+      left:30px; top:75px;
+      pointer-events:none;
+      color:white;
+      text-align: left;
+  }
+ #details .grp { margin-top:20px; }
+ #details .country {
+     color:#00b48f; font-size:25pt;
+     text-rendering: optimizeLegibility; /* proper kerning for the word Total */
+     margin-bottom:5px;
+ }
+ #details .country { z-index:11 !important; background-color: #111; height: 1em; }
+ #details .year { color:#999; font-size:25pt; margin-bottom:10px; }
+ #details .value {   font-size:14pt; color:white;}
+ #details .migrants .value {   font-size:12pt; }
+ #details .migrants {
+     background-image: url(../images/migrants.png);
+     background-repeat: no-repeat;
+     background-size: 32px 30px;
+     background-position: 3px 5px;
+     padding-left:50px;
+ }
+ #details .remittances .value {   font-size:20pt; }
+ #details .remittances .title {   font-size:14pt; }
+ #details .remittancesPerCapita {
+     background-image: url(../images/per-migrant.png);
+     background-repeat: no-repeat;
+     background-size: 40px;
+     padding-left:50px;
+ }
+ #details .remittancesPerCapita .value {   font-size:20pt; }
+ #details .remittancesPerCapita .title {   font-size:14pt; }
+ #details .title {  font-size:10pt; color:white; margin-top:0px; margin-bottom:5px; }
+ #details .comment { margin-top:3px; display:block; font-size:8pt; color:#999;}
+
+
+
+/*To fit my screen*/
+ #details { top:60px; left:30px; }
+ #details .country { font-size:15pt; }
+ #details .year { font-size:16pt; }
+ #details .value {   font-size:14pt; }
+ #details .migrants .value {   font-size:10pt; }
+ #details .migrants {
+   background-size: 16px 15px;
+   background-position: 3px 5px;
+   padding-left:25px;
+}
+#details .remittances .value {   font-size:15pt; }
+#details .remittances .title {   font-size:10pt; }
+#details .remittancesPerCapita {
+   background-size: 20px;
+   padding-left:25px;
+}
+#details .remittancesPerCapita .value {   font-size:15pt; }
+#details .remittancesPerCapita .title {   font-size:10pt; }
+#details .title {  font-size:8pt;  }
+#details .comment { font-size:6pt; }
+
+
+
+ #chart { text-align: center;  }
+
+ #chart .map g.arcs path,  #legend path {
+     stroke: #090909; stroke-width:0.1;
+     opacity: 1;
+     fill: white;
+ }
+
+ #chart .map g.arcs path:hover { fill:white; }
+
+ #chart .map .land { stroke-width:1.0; }
+
+ #chart .map .land.highlighted {
+     /* fill: #67F7C1; */
+     stroke:#F2D59A;
+     stroke-width:1;
+
+ }
+ 
+ #chart .map .land.selected {
+     /*fill: #9D7C37;*/
+     /*fill: #276cab;*/
+     stroke: #F2D59A;
+     fill:#555;
+     stroke-width:1.3;
+ }
+
+  #tooltip {
+     max-width: 250px;
+     display:none;
+     position:absolute;
+     top:130px;
+     left:20px;
+     /*width:200px;*/
+     background-color:#052021;
+     font-size:10pt;
+     text-shadow: none;
+     opacity:0.8;
+     border-radius:10px;
+     padding:5px;
+ }
+
+ #color-legend { position: absolute; bottom:235px; right:20px; }
+ #color-legend text { fill:#999; font-size:11px; font-family: Lato; text-shadow: 1px 1px 1px #111; }
+ #color-legend text.axis {  }
+ #color-legend text.title {   }
+
+ #disease-radio {position: absolute; top:100px; right:20px;}
+ #disease-radio text { fill:#999; font-size:11px; font-family: Lato; text-shadow: 1px 1px 1px #111; }
+
+#timeline {
+     position:fixed;
+     bottom:10px;
+     width:100%;
+     /*height:120px;*/
+     text-align: right;
+     /*background-color: rgba(0,0,0,0.1);*/
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }
+
+
+ #timeline .timeAxis g.tick.major line { stroke:#999; }
+ #timeline .timeAxis g.tick.major text { stroke:#999; font-size:14px; /*pointer-events:none;*/ }
+ #timeline .timeAxis line.tick.minor  { stroke:#999; }
+
+
+ #timeline .magnitudeAxis { opacity: 0.7; }
+ #timeline .magnitudeAxis g.tick.major line { stroke:#999; }
+ #timeline .magnitudeAxis g.tick.major text { stroke:#999; font-size:10px; }
+ #timeline .magnitudeAxis line.tick.minor  { stroke:#999; }
+
+ #timeline .magnitudeAxisLeft { opacity: 0.7; }
+ #timeline .magnitudeAxisLeft g.tick.major line { stroke:#999; }
+ #timeline .magnitudeAxisLeft g.tick.major text { stroke:#999; font-size:10px; }
+ #timeline .magnitudeAxisLeft line.tick.minor  { stroke:#999; }
+
+ #timeline {
+     /*pointer-events: none;*/
+     vertical-align: bottom;
+     white-space: nowrap;
+ }
+
+ #timeline .play-parent {
+     /*background-color: #111;*/
+     display:inline-block;
+     height:80px; width:80px;
+     position: relative;
+     top:-85px; left:40px;
+     text-align: center;
+     line-height: 140px;
+     padding:0px 5px 10px 5px;
+     border-radius: 10px;
+     opacity: 0.98;
+ }
+
+  #timeline .play {
+     background-image: url('../images/play.svg');
+     background-repeat:no-repeat;
+     background-position:center top;
+     background-size:50px 50px;
+     height:80px; width:80px;
+     cursor:pointer;
+     opacity:0.6;
+     pointer-events: visiblePainted;
+     color:white;
+ }
+
+ #timeline .play:hover { opacity:0.9; }
+ #timeline .play.playing {
+     background-image: url('../images/pause.svg');
+ }
+
+ #timeline g.selectorHand, #timeline g.tseries  { pointer-events: visiblePainted;  }
+ #timeline path.domain { fill:#111; fill-opacity:0.1; stroke:#555; stroke-width:0.3; }
+ #timeline g.selectorHand { cursor:ew-resize; }
+ #timeline g.selectorHand line { stroke:#999; stroke-width:2;   }
+ #timeline g.selectorHand circle.center {  fill:#fff; stroke:#666; stroke-width:2; }
+
+ #timeline g.tseries path { stroke-width:2.5; }
+ #timeline g.tseries path.hiv { stroke:/*#00b48f*/white; }
+ #timeline g.tseries path.tb { stroke:#2c97df; }
+ #timeline g.tseries path.healthcare { stroke:yellow; }
+
+ #timeline g.tseries .legend { opacity: 0.9; }
+ #timeline g.tseries .legend circle { stroke:#111; stroke-width:1; }
+ #timeline g.tseries .legend .hiv  { /*fill:#00b48f;*/ fill:white; }
+ #timeline g.tseries .legend .tb  { fill:#2c97df; }
+ #timeline g.tseries .legend .healthcare  { fill:yellow; }
+ #timeline g.tseries .legend text { font-size: 10pt; alignment-baseline:central; text-shadow: 1px 1px 1px #111; }
+
+#countrySelect {
+     display:none;
+     background-image: url('../images/search.png');
+     background-size: 25px 25px;
+     background-repeat: no-repeat;
+     background-position: 9px 9px;
+     position: absolute; top:25px; right:25px;
+     background-color: #696969;
+     padding-left:43px;
+ }
+ .typeahead,
+ .tt-query,
+ .tt-hint {
+   width: 250px;
+   height: 20px;
+   padding: 8px 12px;
+   font-size: 18px;
+   line-height: 30px;
+   border: 2px solid #ccc;
+   outline: none;
+ }
+
+ .typeahead {
+   background-color: #fff;
+ }
+
+ .typeahead:focus {
+   border: 2px solid #0097cf;
+ }
+
+ .tt-query {
+ }
+
