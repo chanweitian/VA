@@ -510,10 +510,15 @@ function updateDetails() {
     if (m !== undefined) {
         val = parseFloat(m[selectedYear]).toFixed(2);   
     }
+    var n = healthcareByCountry[iso3];
 
-
+    var val2 = "N/A";
+    if (n !== undefined) {
+        val2 = parseFloat(n[selectedYear]).toFixed(2);   
+    }
 
     details.select(".death .value").text(val);
+    details.select(".healthcare .value").text(val2);
     
   } 
 
