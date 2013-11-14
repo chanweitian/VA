@@ -490,6 +490,7 @@ $(document).ready(function() {
 		} else {
 			selectedCountry = code;
 		}
+
 		updateChoropleth();
 		updateDetails();
 		updateTimeSeries();
@@ -512,6 +513,7 @@ $(document).ready(function() {
 
 
 		chart_svg.selectAll("path.land")
+		.classed("selected", function(d) { return d.id === selectedCountry; })
 		.transition()
 		.duration(50)
 		.attr("fill", function(d) {
