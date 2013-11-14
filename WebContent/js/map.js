@@ -384,7 +384,7 @@ $(document).ready(function() {
 			.removeClass("playing");
 			yearAnimation.stop();
 		} else {
-			$("#timeline .play-parent")
+			$("#timeline .play")
 			.addClass("playing")
 			.text(msg("intro.animation.stop"));
 			$("#timeline .play-parent")
@@ -1172,6 +1172,41 @@ $(document).ready(function() {
 			var year = Math.round(yearScale.invert(cx));
 			selectYear(year, true);
 		}
+		
+		$("#chart g.map path.land")
+        .add("#chart g.countries circle")
+        .on("mousemove", function(e) {
+          var d = e.target.__data__;
+          var iso3 = (d.id  ||  d.iso3);
+          var vals, val, text = null;
+
+          if (selectedCountry != null) {
+            if (selectedCountry !== iso3) {
+              val = interpolateNumOfCases(selectedCountry, iso3, selectedYear);
+              text = "<b>"+countryNamesByCode[iso3]+"</b>" + (!isNaN(val) ? ": <br>" +
+                msg("tooltip.migrants.number.from-a",
+                  numberFormat(val),
+                  countryNamesByCode[selectedCountry]) :
+                  ": " + numberFormat(val));
+            }
+          }
+
+          if (text === null) {
+            if (highlightedCountry != null) {
+              vals = selectedDiseaseDeaths[highlightedCountry];
+              if (vals != null) {
+                val = vals[selectedYear];
+                text = "<b>"+countryNamesByCode[iso3]+"</b>" +
+                  (!isNaN(val) ? ": <br>" +
+                    msg("tooltip.remittances.amount", perhunderedThousandsFormat(val)) :
+                    ": " + numberFormat(val));
+              }
+            }
+          }
+
+          if (text !== null) showTooltip(e, text);
+        })
+        .on("mouseout", hideTooltip)
 
 		$("#sources .info")
 		.on("mouseover", function(e) {
