@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
 	var landColor = d3.rgb("#666666"); 
 	var width = height = null;
 
@@ -438,7 +438,7 @@ $(function() {
 			if (b.id === code) return -1;
 			return 0;
 		});
-		updateTimeSeries();
+		//updateTimeSeries();
 	}
 
 	function showTooltip(e, html) {
@@ -647,6 +647,7 @@ $(function() {
 		}
 		d3.select("#timeline g.tseries .legend .hiv text").text(msg("details.tseries.legend.hiv"));
 
+
 		var rmax;
 		var dmax;
 		var cmax;
@@ -655,19 +656,47 @@ $(function() {
 		var tbSlice = d3.values(tb).slice();
 		var healthcareSlice = d3.values(healthcare).slice();
 
+
+
 		if (country==null){
-			rmax = d3.max(d3.values(hiv));
-			dmax = d3.max(d3.values(tb));
-			cmax = d3.max(d3.values(healthcare));
+
+			var hivArray = d3.values(hiv);
+			var tbArray = d3.values(tb);
+			var hcArray = d3.values(healthcare);
+
+			for(var i=0; i<hivArray.length; i++) { hivArray[i] = +hivArray[i] } 
+			for(var i=0; i<tbArray.length; i++) { tbArray[i] = +tbArray[i] } 
+			for(var i=0; i<hcArray.length; i++) { hcArray[i] = +hcArray[i] } 
+
+
+			rmax = d3.max(hivArray);
+			dmax = d3.max(tbArray);
+			cmax = d3.max(hcArray);
 		}else{
 			hivSlice = hivSlice.splice(1,hivSlice.length-1);
 			tbSlice = tbSlice.splice(0,tbSlice.length-2);
 			healthcareSlice = healthcareSlice.slice(1,healthcareSlice.length-1);
 
-			rmax = d3.max(d3.values(hivSlice));
-			dmax = d3.max(d3.values(tbSlice));
-			cmax = d3.max(d3.values(healthcareSlice));
+			var hivArray = d3.values(hivSlice);
+			var tbArray = d3.values(tbSlice);
+			var hcArray = d3.values(healthcareSlice);
+
+			for(var i=0; i<hivArray.length; i++) { hivArray[i] = +hivArray[i] } 
+			for(var i=0; i<tbArray.length; i++) { tbArray[i] = +tbArray[i] } 
+			for(var i=0; i<hcArray.length; i++) { hcArray[i] = +hcArray[i] } 
+
+
+			rmax = d3.max(hivArray);
+			dmax = d3.max(tbArray);
+			cmax = d3.max(hcArray);
+
+			console.log(d3.values(tbSlice));
+			console.log(dmax);
+			
 		}
+
+
+
 
 		var max;
 		if (isNaN(rmax)){
