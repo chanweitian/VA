@@ -427,7 +427,7 @@ $(function() {
 
 	$(document).keyup(function(e) { if (e.keyCode == 27) selectCountry(null); });
 	background.on("click", function() { selectCountry(null); });
-	
+
 	function highlightCountry(code){
 		highlightedCountry = code;
 		chart_svg.selectAll("path.land")
@@ -492,35 +492,63 @@ $(function() {
 	}
 
 	function updateChoropleth() {
-		
-		var max =
-			// calc max over time for all countries
-			d3.max(selectedDiseaseDeath, function(d) {
-				return d3.max(selectedYears.map(function(y) { return +d[y]; }));
+
+		var gcountries = chart_svg.select("g.countries");
+
+		if (selectedCountry === null  &&  highlightedCountry == null) {
+			d3.select("#description").text("");
+			chart_svg.selectAll("path.land")
+			.classed("highlighted", false)
+			.classed("selected", false)
+			.transition()
+			.duration(50)
+			.attr("fill",landColor)
+			.attr("stroke", "none");
+
+			gcountries.selectAll("circle.country")
+			.attr("opacity", 1);
+
+		} else {
+
+			var code = ( selectedCountry !== null ? selectedCountry : highlightedCountry);
+
+			var max =
+				// calc max over time for all countries
+				d3.max(selectedDiseaseDeath, function(d) {
+					return d3.max(selectedYears.map(function(y) { return +d[y]; }));
+				});
+
+			selectedColor.domain([1, max]);
+
+
+			var diseaseByCountry = d3.nest()
+			.key(function(d) { return d.Code; })
+			.rollup(function(d) { return d[0]; })
+			.map(selectedDiseaseDeath);
+
+			chart_svg.selectAll("path.land")
+			.transition()
+			.duration(50)
+			.attr("fill", function(d) {
+
+				var m = diseaseByCountry[d.id];
+				if (m !== undefined) {
+					var val = m[selectedYear];
+					if (!isNaN(val) && (val > 0 /* for log scale to work*/)) return selectedColor(val);
+				}
+
+				return landColor;   //.darker(0.5);
 			});
 
-		selectedColor.domain([1, max]);
-
-		var diseaseByCountry = d3.nest()
-		.key(function(d) { return d.Code; })
-		.rollup(function(d) { return d[0]; })
-		.map(selectedDiseaseDeath);
-
-
-		chart_svg.selectAll("path.land")
-		.transition()
-		.duration(50)
-		.attr("fill", function(d) {
-
-			var m = diseaseByCountry[d.id];
-			if (m !== undefined) {
-				var val = m[selectedYear];
-				if (!isNaN(val) && (val > 0 /* for log scale to work*/)) return selectedColor(val);
-			}
-
-			return landColor;   //.darker(0.5);
-		});
-		updateColorLegend();
+			gcountries.selectAll("circle.country")
+			.attr("opacity", function(d) {
+				if (d.iso3 === selectedCountry  ||
+						(selectedCountry == null && d.iso3 == highlightedCountry))
+					return 1;
+				else
+					return 0;
+			});
+		}
 	}
 
 	function updateColorLegend(){
@@ -651,7 +679,7 @@ $(function() {
 		}
 
 		max *= 1.15;
-
+		
 		tseriesScale.domain([0, max]);
 		t1seriesScale.domain([0, cmax]);
 
@@ -689,7 +717,7 @@ $(function() {
 			var n = healthcareByCountry[iso3];
 
 			var val2 = "N/A";
-			if (n !== undefined) {
+			if (n == undefined || isNaN(n)) {	}else{
 				val2 = parseFloat(n[selectedYear]).toFixed(2);   
 			}
 
