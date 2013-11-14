@@ -55,33 +55,24 @@
     "sources.aid.info" : "In wenigen Fällen kommt im Datensatz aufgrund von Rückzahlungen früher erhaltener Entwicklungshilfekredite ein negatives Jahrestotal vor. Diese werden in der Grafik nicht dargestellt, sondern als 0 gewertet.",
 
     "intro.prev" : "&nbsp;",
-    "intro.next" : "Weiter",
-    "intro.skip" : "Einführung überspringen",
-    "intro.show" : "Einführung zeigen",
-    "intro.start-exploring" : "Jetzt beginnen",
+    "intro.next" : "Next",
+    "intro.skip" : "Skip intro",
+    "intro.show" : "Show intro",
+    "intro.start-exploring" : "Start now",
     "intro.animation.play" : "Play",
     "intro.animation.stop" : "Pause",
 
-    "intro.1.title" : "Massiver Anstieg seit 2000",
-    "intro.1.text" : "Die Geldmenge, die Migranten in ihre Heimat zurückschicken, steigt seit Beginn der Datenerhebung 1970 stetig an. Geradezu explodiert sind die sogenannten Remittances aber erst um die Jahrtausendwende. Von (inflationsbereinigten) 204 Milliarden USD im Jahr 2000 sind sie auf 540 Milliarden im Jahr 2012 angestiegen. Hierbei handelt es sich nur um Geld, das überwiesen wurde. Über inoffizielle Kanäle, so schätzen Experten, dürften weitere 250 Milliarden fliessen.",
+    "intro.1.title" : "The HIV-Tuberculosis Conundrum",
+    "intro.1.text" : "The rich get richer, the poor poorer. This is a sad truth even in diseases, none more so than HIV and Tuberculosis. Mycobacterium avium complex (MAC) is a group of bacteria related to tuberculosis. These germs are very common in food, water, and soil. Almost everyone has them in their bodies. If you have a strong immune system, they don't cause problems. But they can cause serious illness in people with HIV, a look at the sub-Saharan states shows us how much this afflicts them",
 
-    "intro.2.title" : "Weit mehr als Entwicklungshilfe",
-    "intro.2.text" : "Geht es um Zahlungen an ärmere Länder, steht oft die staatliche Entwicklungshilfe im Fokus der Diskussion. Tatsache ist aber: Weltweit floss 2011 mindestens zweieinhalb Mal so viel Geld über Remittances. Viele Länder werden stärker von ihren eigenen Landsleuten als von anderen Ländern unterstützt. In 30% aller Länder, die von der Schweiz Entwicklungshilfe erhalten, floss 2011 mehr Geld über Remittances, im Falle der Philippinen sogar fünfzig Mal mehr.",
+    "intro.2.title" : "A First-Class Healthcare System",
+    "intro.2.text" : "What makes a 1st world healthcare system? Tuberculosis is a good measure of whether a nation's healthcare infrastructure is up to mark on meeting the challenges of timely and quality healthcare. Seemingly, the Western nations leading these indices, especially the social-welfare oriented states of the EU and America",
 
-    "intro.3.title" : "Immer mehr pro Auswanderer",
-    "intro.3.text" : "Die Geldsendungen nehmen nicht nur in der Summe zu. Auch der durchschnittliche Betrag pro Auswanderer hat sich in den letzten zehn Jahren auf rund 2500 USD verdoppelt. Es handelt sich hierbei allerdings nur um eine Schätzung. Die tatsächlichen Beträge dürften etwas tiefer liegen, da eingebürgerte Migranten in der Statistik nicht mehr berücksichtigt sind, ihre Überweisungen jedoch schon.",
+    "intro.3.title" : "Is there an Efficiency Point?",
+    "intro.3.text" : "Is a cradle-to-grave really required? Seemingly, our European neighbours have a 1st class esque healthcare system, but a closer look at Pan-American and Middle-East states shows comparable quality in handling diseases. Which begs the question, is overly excessive investment required in achieving a consumerate level of healthcare?",
 
-    "intro.4.title" : "Indien und China vorneweg",
-    "intro.4.text" : "Die beiden mit Abstand bevölkerungsreichsten Länder der Welt, Indien und China, liegen auch auf der Rangliste der Remittances weit vorne. 71 Milliarden US-Dollar schickten Inder aus aller Welt 2012 in ihre Heimat zurück, Chinesen 62 Milliarden. Auf den weiteren Plätzen folgen Mexiko, die Philippinen, Nigeria und Ägypten. Danach folgt mit Frankreich das erste europäische Land.",
-
-    "intro.5.title" : "Griechen und Türken schicken weniger",
-    "intro.5.text" : " Nur bei neun Ländern ist die Summe der Überweisungen in die Heimat seit 2000 eindeutig rückläufig (bei einigen weiteren ist eine negative Tendenz sichtbar, Zahlen aus den letzten Jahren sind aber nicht verfügbar). Den stärksten Rückgang haben Griechenland (–79%) und die Türkei (–83%) zu verzeichnen. 2000 wurden noch über 7 Milliarden USD von Auslandtürken in die Türkei geschickt, 2012 weniger als eine Milliarde.",
-
-    "intro.6.title" : "Krise? Welche Krise?",
-    "intro.6.text" : "Die globale Finanz- und Wirtschaftskrise ab 2008 hat sich auf das Wachstum der Remittances nur sehr kurzfristig ausgewirkt. 2009 gingen die Zahlungen weltweit um 15 Milliarden zurück, der erste nennenswerte Rückgang seit Beginn der Datenerhebung überhaupt. Besonders betroffen waren Länder in Europa, Mittel- und Südamerika sowie Australien. Bereits im Folgejahr setzte sich das rasante Wachstum fort, das um die Jahrtausendwende eingesetzt hatte.",
-
-    "intro.7.title" : "Erkunden Sie die Daten selber!",
-    "intro.7.text" : "Klicken Sie die Länder an, die Sie besonders interessieren und navigieren Sie der Zeitachse entlang. Für jedes Land sehen Sie, wie sich die Remittances seit 1970 entwickelt haben und wo auf der Welt die Auswanderer leben. Je dunkler die Farbe, desto mehr Auswanderer des angewählten Landes leben dort."
+    "intro.4.title" : "Explore the data yourself",
+    "intro.4.text" : "Now it's time for you to start exploring the data yourself. Click on the countries you're interested in the most and slide along the time axis. For each country, you will see how diseases have affected them since 1990 and how have their governments have responded in terms of their investment into healthcare. The darker the colour, the more afflicted these populations are from these diseases."
 
   },
 
@@ -141,26 +132,17 @@
     "intro.animation.play" : "Play",
     "intro.animation.stop" : "Pause",
 
-    "intro.1.title" : "Incredible rise since 2000",
-    "intro.1.text" : "Remittances, money sent back home by migrants, have increased ever since data collection started in 1970. After 2000, however, the worldwide total downright skyrocketed from 204 billion USD (inflation adjusted) to 540 billion in 2012. In fact, only official transactions are counted towards that total. Experts estimate that at least another 250 billion are sent through inofficial channels such as legmen.",
+    "intro.1.title" : "The HIV-Tuberculosis Conundrum",
+    "intro.1.text" : "The rich get richer, the poor poorer. This is a sad truth even in diseases, none more so than HIV and Tuberculosis. Mycobacterium avium complex (MAC) is a group of bacteria related to tuberculosis. These germs are very common in food, water, and soil. Almost everyone has them in their bodies. If you have a strong immune system, they don't cause problems. But they can cause serious illness in people with HIV, a look at the sub-Saharan states shows us how much this afflicts them",
 
-    "intro.2.title" : "Far bigger than foreign aid",
-    "intro.2.text" : "Debates on financial support for developing countries usually center around development aid (ODA). However, in 2011, the worldwide total of remittances was more than 2.5 times the sum that was spent on ODA. A lot of countries receive more financial support from their own migrants than from the international community.",
+    "intro.2.title" : "A First-Class Healthcare System",
+    "intro.2.text" : "What makes a 1st world healthcare system? Tuberculosis is a good measure of whether a nation's healthcare infrastructure is up to mark on meeting the challenges of timely and quality healthcare. Seemingly, the Western nations leading these indices, especially the social-welfare oriented states of the EU and America",
 
-    "intro.3.title" : "The average migrant sends more and more",
-    "intro.3.text" : "Remittances have not only increased in total. The average payment per migrant has doubled to roughly 2500 USD over the past ten years. The numbers have to be considered as estimates, though, since naturalised migrants (who might still send money home) are not counted towards the total number of migrants. Thus, actual average payments are likely to be lower.",
+    "intro.3.title" : "Is there an Efficiency Point?",
+    "intro.3.text" : "Is a cradle-to-grave really required? Seemingly, our European neighbours have a 1st class esque healthcare system, but a closer look at Pan-American and Middle-East states shows comparable quality in handling diseases. Which begs the question, is overly excessive investment required in achieving a consumerate level of healthcare?",
 
-    "intro.4.title" : "India and China far ahead",
-    "intro.4.text" : "The two most populated countries in the world, India and China, are also way ahead of the rest when it comes to remittance inflows. Indians sent home 71 billion USD to their home country in 2012, Chinese 62 billion. Next in the ranking are Mexico, the Philippines, Nigeria and Egypt, followed by the first European country, France.",
-
-    "intro.5.title" : "Declining flows to Greece and Turkey",
-    "intro.5.text" : "Only nine countries have seen a decline of remittances since 2000 (a few others had a negative trend, but no recent data is available). Remittances have fallen the most for Greece (-79%) and for Turkey (-83%). While Turkish migrants had sent home more than 7 billion USD in 2000, in 2011 that number had fallen below 1 billion.",
-
-    "intro.6.title" : "Crisis? What crisis?",
-    "intro.6.text" : "The global financial crisis that started in 2008 had only a short-term effect on remittances. In 2009, remittances decreased by 15 billion globally, the first notable decline ever. Mostly countries in Europe, Central and South America and Australia saw a decline. One year later, though, rapid growth was back on track.",
-
-    "intro.7.title" : "Explore the data yourself",
-    "intro.7.text" : "Now it's time for you to start exploring the data yourself. Click on the countries you're interested in the most and slide along the time axis. For each country, you will see how remittances have developed since 1970 and where most of the country's migrants live. The darker the colour, the more migrants from the selected country."
+    "intro.4.title" : "Explore the data yourself",
+    "intro.4.text" : "Now it's time for you to start exploring the data yourself. Click on the countries you're interested in the most and slide along the time axis. For each country, you will see how diseases have affected them since 1990 and how have their governments have responded in terms of their investment into healthcare. The darker the colour, the more afflicted these populations are from these diseases."
 
   }
 

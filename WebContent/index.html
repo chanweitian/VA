@@ -1,61 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>D3 Test</title>
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="lib/d3.min.js" charset="utf-8"></script>
-        <script src="lib/d3.geo.projection.v0.min.js"></script>
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-        <script src="lib/queue.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
-    	
-		<style>
-     .interactive { display:none; }
-     .svg .interactive { display:block; }
-     .static { text-align: center;   }
-     .static div { padding:10px; color:white; font-size:10pt; }
-     .static img { border:1px solid #ccc; width:80%; }
-     .svg .static { display:none; }
-   </style>
-		
-       <div id="details">
-          <div class="country">Overall</div>
-          <div class="sub">
-            <div class="year">2011</div>
+<head>
+<meta charset="utf-8">
+<title>D3 Test</title>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="lib/d3.min.js" charset="utf-8"></script>
+<script src="lib/d3.geo.projection.v0.min.js"></script>
+<script src="lib/queue.min.js"></script>
+<script src="lib/idangerous.swiper-1.9.4.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
 
-            <div class="grp death">
-              <div class="value">Total</div>
-              <div class="title">Death per 100,000</div>
-          </div>
+	<style>
+.interactive {
+	display: none;
+}
 
-          <div class="grp healthcare">
-              <div class="value">$123</div>
-              <div class="title">Healthcare Expenditure per Capita (USD)</div>
-          </div>
+.svg .interactive {
+	display: block;
+}
 
-      </div>
+.static {
+	text-align: center;
+}
 
-</div>
+.static div {
+	padding: 10px;
+	color: white;
+	font-size: 10pt;
+}
+
+.static img {
+	border: 1px solid #ccc;
+	width: 80%;
+}
+
+.svg .static {
+	display: none;
+}
+</style>
+
+	<div id="details">
+		<div class="country">Overall</div>
+		<div class="sub">
+			<div class="year">2011</div>
+
+			<div class="grp death">
+				<div class="value">Total</div>
+				<div class="title">Death per 100,000</div>
+			</div>
+
+			<div class="grp healthcare">
+				<div class="value">$123</div>
+				<div class="title">Healthcare Expenditure per Capita (USD)</div>
+			</div>
+
+		</div>
+
+	</div>
 
 	<section id="visualisation">
-        <div id="color-legend"></div>
+		<div id="color-legend"></div>
 
-    	<div id="chart"></div>
-		 <div id="timeline">
-		  <div class="play-parent"><div class="play" data-msg="intro.animation.play"></div></div>
+		<div id="chart"></div>
+		<div id="timeline">
+			<div class="play-parent">
+				<div class="play" data-msg="intro.animation.play"></div>
+			</div>
 		</div>
-        <div id="disease-radio">
-            <input type="radio" id="hiv" value="hiv" name="disease" checked="checked"/><label for="hiv">HIV</label></br>
-            <input type="radio" id="tb" value="tb" name="disease" /><label for="tb">Tuberculosis</label>
-        </div>
+		<div id="disease-radio">
+			<input type="radio" id="hiv" value="hiv" name="disease"
+				checked="checked" /><label for="hiv">HIV</label></br> <input
+				type="radio" id="tb" value="tb" name="disease" /><label for="tb">Tuberculosis</label>
+		</div>
 
-        <div id="tooltip"></div>
+		<div id="show-intro" data-msg="intro.show"></div>
+
+		<div id="tooltip"></div>
 	</section>
-        <script src="lib/fit-projection.js"></script>
-        <script src="js/map.js" ></script>       
-        <script src="js/msg.js" ></script>
-    </body>
-</html>     
+
+	<section id="guide" class="swiper-container">
+		<div class="swiper-wrapper">
+
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.1.title"></h2>
+						<p data-msg="intro.1.text"></p>
+						<a class="anim" data-msg="intro.animation.play"></a>
+					</div>
+					<a class="prev" data-msg="intro.prev" style="opacity: 0.1"></a> <a
+						class="next" data-msg="intro.next"></a>
+					<div class="pagination"></div>
+					<a class="skip" data-msg="intro.skip"></a>
+				</aside>
+			</div>
+
+
+
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.2.title"></h2>
+						<p data-msg="intro.2.text"></p>
+					</div>
+					<a class="prev" data-msg="intro.prev"></a> <a class="next"
+						data-msg="intro.next"></a>
+					<div class="pagination"></div>
+					<a class="skip" data-msg="intro.skip"></a>
+				</aside>
+			</div>
+
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.3.title"></h2>
+						<p data-msg="intro.3.text"></p>
+						<a class="anim" data-msg="intro.animation.play"></a>
+					</div>
+					<a class="prev" data-msg="intro.prev"></a> <a class="next"
+						data-msg="intro.next"></a>
+					<div class="pagination"></div>
+					<a class="skip" data-msg="intro.skip"></a>
+				</aside>
+			</div>
+
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.4.title"></h2>
+						<p data-msg="intro.4.text"></p>
+					</div>
+					<a class="prev" data-msg="intro.prev"></a> <a class="last"
+						data-msg="intro.start-exploring"></a>
+				</aside>
+			</div>
+
+
+		</div>
+	</section>
+
+	<script src="lib/fit-projection.js"></script>
+	<script src="js/map.js"></script>
+	<script src="js/msg.js"></script>
+</body>
+</html>
