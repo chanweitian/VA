@@ -511,6 +511,7 @@ $(document).ready(function() {
 
 
 		chart_svg.selectAll("path.land")
+		.classed("selected", function(d) { return d.id === selectedCountry; })
 		.transition()
 		.duration(50)
 		.attr("fill", function(d) {
@@ -710,21 +711,30 @@ $(document).ready(function() {
 			countryName = countryNamesByCode[iso3];
 			
 			var tbDetails = tbDeathRatesByCountry[iso3];
-			var tbValue = parseFloat(tbDetails[selectedYear]).toFixed(2);
-			if (tbValue == undefined || isNaN(tbValue)){
-				tbValue = "N/A";   
+			var tbValue = "N/A";
+			if(tbDetails != undefined){
+				var tbValue = parseFloat(tbDetails[selectedYear]).toFixed(2);
+				if (tbValue == undefined || isNaN(tbValue)){
+					tbValue = "N/A";   
+				}
 			}
 			
 			var hivDetails = hivDeathRatesByCountry[iso3];
-			var hivValue = parseFloat(hivDetails[selectedYear]).toFixed(2);
-			if (hivValue == undefined || isNaN(hivValue)){
-				hivValue = "N/A";  
+			var hivValue = "N/A";
+			if(hivDetails != undefined){
+				hivValue = parseFloat(hivDetails[selectedYear]).toFixed(2);
+				if (hivValue == undefined || isNaN(hivValue)){
+					hivValue = "N/A";  
+				}
 			}
 			
 			var healthcareDetails = healthcareByCountry[iso3];
-			var healthcareValue = parseFloat(healthcareDetails[selectedYear]).toFixed(2);
-			if (healthcareValue == undefined || isNaN(healthcareValue)){
-				healthcareValue = "N/A";   
+			var healthcareValue = "N/A";
+			if(healthcareDetails != undefined){
+				healthcareValue = parseFloat(healthcareDetails[selectedYear]).toFixed(2);
+				if (healthcareValue == undefined || isNaN(healthcareValue)){
+					healthcareValue = "N/A";   
+				}
 			}
 			
 			details.select(".hiv .value").text(hivValue);
@@ -1188,7 +1198,7 @@ $(document).ready(function() {
 
           if (text === null) {
             if (highlightedCountry != null) {
-              vals = selectedDiseaseDeaths[highlightedCountry];
+              vals = selectedDiseaseDeath[highlightedCountry];
               if (vals != null) {
                 val = vals[selectedYear];
                 text = "<b>"+countryNamesByCode[iso3]+"</b>";

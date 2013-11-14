@@ -327,8 +327,7 @@ a {
 }
 
 #chart .map .land.selected {
-	stroke: #F2D59A;
-	fill: #111;
+	stroke: #d7f1f3;
 	stroke-width: 1.3;
 }
 

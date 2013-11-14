@@ -1200,11 +1200,7 @@ $(document).ready(function() {
           if (selectedCountry != null) {
             if (selectedCountry !== iso3) {
               val = interpolateNumOfCases(selectedCountry, iso3, selectedYear);
-              text = "<b>"+countryNamesByCode[iso3]+"</b>" + (!isNaN(val) ? ": <br>" +
-                msg("tooltip.migrants.number.from-a",
-                  numberFormat(val),
-                  countryNamesByCode[selectedCountry]) :
-                  ": " + numberFormat(val));
+              text = "<b>"+countryNamesByCode[iso3]+"</b>";
             }
           }
 
@@ -1213,10 +1209,7 @@ $(document).ready(function() {
               vals = selectedDiseaseDeath[highlightedCountry];
               if (vals != null) {
                 val = vals[selectedYear];
-                text = "<b>"+countryNamesByCode[iso3]+"</b>" +
-                  (!isNaN(val) ? ": <br>" +
-                    msg("tooltip.remittances.amount", perhunderedThousandsFormat(val)) :
-                    ": " + numberFormat(val));
+                text = "<b>"+countryNamesByCode[iso3]+"</b>";
               }
             }
           }
