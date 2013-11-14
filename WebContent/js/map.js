@@ -375,16 +375,20 @@ $(document).ready(function() {
 		}
 	});
 
-	$("#timeline .play").click(function() {
+	$("#timeline .play-parent").click(function() {
 		if ($(this).hasClass("playing")) {
 			$("#timeline .play")
 			.removeClass("playing")
 			.text(msg("intro.animation.play"));
+			$("#timeline .play-parent")
+			.removeClass("playing");
 			yearAnimation.stop();
 		} else {
 			$("#timeline .play")
 			.addClass("playing")
 			.text(msg("intro.animation.stop"));
+			$("#timeline .play-parent")
+			.addClass("playing");
 			if ($(this).data("clicked")) {
 				yearAnimation.start();
 			} else {
@@ -520,7 +524,7 @@ $(document).ready(function() {
 
 			return landColor;   //.darker(0.5);
 		});
-		updateColorLegend();
+		//updateColorLegend();
 	}
 
 	function updateColorLegend(){
