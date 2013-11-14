@@ -13,34 +13,74 @@
 <body>
 
 	<style>
-     .interactive { display:none; }
-     .svg .interactive { display:block; }
-     .static { text-align: center;   }
-     .static div { padding:10px; color:white; font-size:10pt; }
-     .static img { border:1px solid #ccc; width:80%; }
-     .svg .static { display:none; }
-   </style>
+.interactive {
+	display: none;
+}
 
-	<div id="details">
-		<div class="country">Overall</div>
-		<div class="sub">
-			<div class="year">2011</div>
+.svg .interactive {
+	display: block;
+}
 
-			<div class="grp death">
-				<div class="value">Total</div>
-				<div class="title">Death per 100,000</div>
+.static {
+	text-align: center;
+}
+
+.static div {
+	padding: 10px;
+	color: white;
+	font-size: 10pt;
+}
+
+.static img {
+	border: 1px solid #ccc;
+	width: 80%;
+}
+
+.svg .static {
+	display: none;
+}
+</style>
+
+	<section id="visualisation">
+
+		<div id="details">
+			<div class="country">Overall</div>
+			<div class="sub">
+				<div class="year">2011</div>
+
+				<div class="grp tb">
+					<div class="value"></div>
+					<div class="title" data-msg="details.tb.title"></div>
+				</div>
+
+				<div class="grp hiv">
+					<div class="value"></div>
+					<div class="title" data-msg="details.hiv.title"></div>
+				</div>
+
+				<div class="grp healthcare">
+					<div class="value">$123</div>
+					<div class="title">Healthcare Expenditure per Capita (USD)</div>
+				</div>
+
+				<div class="description"></div>
+
 			</div>
 
-			<div class="grp healthcare">
-				<div class="value">$123</div>
-				<div class="title">Healthcare Expenditure per Capita (USD)</div>
-			</div>
+			<div id="sources">
+        <span data-msg="sources"></span>:
+        <ul>
+          <li>
+            <span class="info" data-msg="sources.hivtb.type" data-info="sources.hivtb.info"></span>:
+            <a data-msg="sources.hivtb.name" target="_blank" href="http://databank.worldbank.org/data/views/variableSelection/selectvariables.aspx?source=health-nutrition-and-population-statistics#"></a>
+          </li>
+          
+        </ul>
+
+      </div>
 
 		</div>
 
-	</div>
-
-	<section id="visualisation">
 		<div id="color-legend"></div>
 
 		<div id="chart"></div>
@@ -51,7 +91,7 @@
 		</div>
 		<div id="disease-radio">
 			<input type="radio" id="hiv" value="hiv" name="disease"
-				checked="checked" /><label for="hiv">HIV</label></br> <input
+				checked="checked" /><label for="hiv">HIV</label> <input
 				type="radio" id="tb" value="tb" name="disease" /><label for="tb">Tuberculosis</label>
 		</div>
 

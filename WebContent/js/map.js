@@ -375,14 +375,14 @@ $(function() {
 		}
 	});
 
-	$("#timeline .play").click(function() {
+	$("#timeline .play-parent").click(function() {
 		if ($(this).hasClass("playing")) {
 			$("#timeline .play")
 			.removeClass("playing")
 			.text(msg("intro.animation.play"));
 			yearAnimation.stop();
 		} else {
-			$("#timeline .play")
+			$("#timeline .play-parent")
 			.addClass("playing")
 			.text(msg("intro.animation.stop"));
 			if ($(this).data("clicked")) {
@@ -698,32 +698,39 @@ $(function() {
 
 		details.select(".year")
 		.text(selectedYear);
-
-		var diseaseByCountry = d3.nest()
-		.key(function(d) { return d.Code; })
-		.rollup(function(d) { return d[0]; })
-		.map(selectedDiseaseDeath);
-
-		var countryName, deathByYear;
+		
+		var countryName;
 
 		if (highlightedCountry != null  ||  selectedCountry != null) {
 			var iso3 = (selectedCountry || highlightedCountry);
 			countryName = countryNamesByCode[iso3];
-			var m = diseaseByCountry[iso3];
-			var val = "N/A";
-			if (m !== undefined) {
-				val = parseFloat(m[selectedYear]).toFixed(2);   
+			
+			var tbDetails = tbDeathRatesByCountry[iso3];
+			var tbValue = parseFloat(tbDetails[selectedYear]).toFixed(2);
+			if (tbValue == undefined || isNaN(tbValue)){
+				tbValue = "N/A";   
 			}
-			var n = healthcareByCountry[iso3];
-
-			var val2 = "N/A";
-			if (n == undefined || isNaN(n)) {	}else{
-				val2 = parseFloat(n[selectedYear]).toFixed(2);   
+			
+			var hivDetails = hivDeathRatesByCountry[iso3];
+			var hivValue = parseFloat(hivDetails[selectedYear]).toFixed(2);
+			if (hivValue == undefined || isNaN(hivValue)){
+				hivValue = "N/A";  
 			}
-
-			details.select(".death .value").text(val);
-			details.select(".healthcare .value").text(val2);
-
+			
+			var healthcareDetails = healthcareByCountry[iso3];
+			var healthcareValue = parseFloat(healthcareDetails[selectedYear]).toFixed(2);
+			if (healthcareValue == undefined || isNaN(healthcareValue)){
+				healthcareValue = "N/A";   
+			}
+			
+			details.select(".hiv .value").text(hivValue);
+			details.select(".tb .value").text(tbValue);
+			
+			if (healthcareValue == "N/A"){
+				details.select(".healthcare .value").text(healthcareValue);
+			}else{
+				details.select(".healthcare .value").text("USD $" + healthcareValue);
+			}
 		} 
 
 		details.select(".country").text(countryName);
