@@ -310,7 +310,7 @@ body {
  }
 
  #timeline .play-parent {
-     /*background-color: #111;*/
+     background-color: #111;
      visibility:  hidden;
      display:inline-block;
      height:80px; width:80px;
