@@ -438,178 +438,90 @@ a {
 }
 
 #timeline {
-	position: fixed;
-	bottom: 10px;
-	width: 100%;
-	/*height:120px;*/
-	text-align: right;
-	/*background-color: rgba(0,0,0,0.1);*/
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
+     position:fixed;
+     bottom:10px;
+     width:100%;
+     /*height:120px;*/
+     text-align: right;
+     /*background-color: rgba(0,0,0,0.1);*/
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }
 
-#timeline .timeAxis g.tick.major line {
-	stroke: #999;
-}
 
-#timeline .timeAxis g.tick.major text {
-	stroke: #999;
-	font-size: 14px; /*pointer-events:none;*/
-}
+ #timeline .timeAxis g.tick.major line { stroke:#999; }
+ #timeline .timeAxis g.tick.major text { stroke:#999; font-size:14px; /*pointer-events:none;*/ }
+ #timeline .timeAxis line.tick.minor  { stroke:#999; }
 
-#timeline .timeAxis line.tick.minor {
-	stroke: #999;
-}
 
-#timeline .magnitudeAxis {
-	opacity: 0.7;
-}
+ #timeline .magnitudeAxis { opacity: 0.7; }
+ #timeline .magnitudeAxis g.tick.major line { stroke:#999; }
+ #timeline .magnitudeAxis g.tick.major text { stroke:#999; font-size:10px; }
+ #timeline .magnitudeAxis line.tick.minor  { stroke:#999; }
 
-#timeline .magnitudeAxis g.tick.major line {
-	stroke: #999;
-}
+ #timeline .magnitudeAxisLeft { opacity: 0.7; }
+ #timeline .magnitudeAxisLeft g.tick.major line { stroke:#999; }
+ #timeline .magnitudeAxisLeft g.tick.major text { stroke:#999; font-size:10px; }
+ #timeline .magnitudeAxisLeft line.tick.minor  { stroke:#999; }
 
-#timeline .magnitudeAxis g.tick.major text {
-	stroke: #999;
-	font-size: 10px;
-}
+ #timeline {
+     /*pointer-events: none;*/
+     vertical-align: bottom;
+     white-space: nowrap;
+ }
 
-#timeline .magnitudeAxis line.tick.minor {
-	stroke: #999;
-}
+ #timeline .play-parent {
+     background-color: #111;
+     visibility:  hidden;
+     display:inline-block;
+     height:80px; width:80px;
+     position: relative;
+     top:-85px; left:40px;
+     text-align: center;
+     line-height: 140px;
+     padding:0px 5px 10px 5px;
+     border-radius: 10px;
+     opacity: 0.98;
+ }
 
-#timeline .magnitudeAxisLeft {
-	opacity: 0.7;
-}
+  #timeline .play {
+     background-image: url('../images/play.svg');
+     background-repeat:no-repeat;
+     background-position:center top;
+     background-size:50px 50px;
+     height:80px; width:80px;
+     cursor:pointer;
+     opacity:0.6;
+     pointer-events: visiblePainted;
+     color:white;
+ }
 
-#timeline .magnitudeAxisLeft g.tick.major line {
-	stroke: #999;
-}
+ #timeline .play:hover { opacity:0.9; }
+ #timeline .play.playing {
+     background-image: url('../images/pause.svg');
+ }
 
-#timeline .magnitudeAxisLeft g.tick.major text {
-	stroke: #999;
-	font-size: 10px;
-}
+ #timeline g.selectorHand, #timeline g.tseries  { pointer-events: visiblePainted;  }
+ #timeline path.domain { fill:#111; fill-opacity:0.1; stroke:#555; stroke-width:0.3; }
+ #timeline g.selectorHand { cursor:ew-resize; }
+ #timeline g.selectorHand line { stroke:#999; stroke-width:2;   }
+ #timeline g.selectorHand circle.center {  fill:#fff; stroke:#666; stroke-width:2; }
 
-#timeline .magnitudeAxisLeft line.tick.minor {
-	stroke: #999;
-}
+ #timeline g.tseries path { stroke-width:2.5; }
+ #timeline g.tseries path.hiv { stroke:#9d3a2f; }
+ #timeline g.tseries path.tb { stroke:#2F9D96; }
+ #timeline g.tseries path.healthcare { stroke:white; }
 
-#timeline {
-	/*pointer-events: none;*/
-	vertical-align: bottom;
-	white-space: nowrap;
-}
-
-#timeline .play-parent {
-	background-color: #111;
-	visibility: hidden;
-	display: inline-block;
-	height: 80px;
-	width: 80px;
-	position: relative;
-	top: -85px;
-	left: 40px;
-	text-align: center;
-	line-height: 140px;
-	padding: 0px 5px 10px 5px;
-	border-radius: 10px;
-	opacity: 0.98;
-}
-
-#timeline .play {
-	background-image: url('../images/play.svg');
-	background-repeat: no-repeat;
-	background-position: center top;
-	background-size: 50px 50px;
-	height: 80px;
-	width: 80px;
-	cursor: pointer;
-	opacity: 0.6;
-	pointer-events: visiblePainted;
-	color: white;
-}
-
-#timeline .play:hover {
-	opacity: 0.9;
-}
-
-#timeline .play.playing {
-	background-image: url('../images/pause.svg');
-}
-
-#timeline g.selectorHand,#timeline g.tseries {
-	pointer-events: visiblePainted;
-}
-
-#timeline path.domain {
-	fill: #111;
-	fill-opacity: 0.1;
-	stroke: #555;
-	stroke-width: 0.3;
-}
-
-#timeline g.selectorHand {
-	cursor: ew-resize;
-}
-
-#timeline g.selectorHand line {
-	stroke: #999;
-	stroke-width: 2;
-}
-
-#timeline g.selectorHand circle.center {
-	fill: #fff;
-	stroke: #666;
-	stroke-width: 2;
-}
-
-#timeline g.tseries path {
-	stroke-width: 2.5;
-}
-
-#timeline g.tseries path.hiv {
-	stroke: /*#00b48f*/ white;
-}
-
-#timeline g.tseries path.tb {
-	stroke: #2c97df;
-}
-
-#timeline g.tseries path.healthcare {
-	stroke: yellow;
-}
-
-#timeline g.tseries .legend {
-	opacity: 0.9;
-}
-
-#timeline g.tseries .legend circle {
-	stroke: #111;
-	stroke-width: 1;
-}
-
-#timeline g.tseries .legend .hiv { /*fill:#00b48f;*/
-	fill: white;
-}
-
-#timeline g.tseries .legend .tb {
-	fill: #2c97df;
-}
-
-#timeline g.tseries .legend .healthcare {
-	fill: yellow;
-}
-
-#timeline g.tseries .legend text {
-	font-size: 10pt;
-	alignment-baseline: central;
-	text-shadow: 1px 1px 1px #111;
-}
+ #timeline g.tseries .legend { opacity: 0.9; }
+ #timeline g.tseries .legend circle { stroke:#111; stroke-width:1; }
+ #timeline g.tseries .legend .hiv  { /*fill:#00b48f;*/ fill:#9d3a2f; }
+ #timeline g.tseries .legend .tb  { fill:#2F9D96; }
+ #timeline g.tseries .legend .healthcare  { fill:white; }
+ #timeline g.tseries .legend text { font-size: 10pt; alignment-baseline:central; text-shadow: 1px 1px 1px #111; }
 
 #countrySelect {
 	display: none;

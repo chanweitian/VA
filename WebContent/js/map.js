@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
 	var landColor = d3.rgb("#666666"); 
 	var width = height = null;
 
@@ -380,11 +380,15 @@ $(function() {
 			$("#timeline .play")
 			.removeClass("playing")
 			.text(msg("intro.animation.play"));
+			$("#timeline .play-parent")
+			.removeClass("playing");
 			yearAnimation.stop();
 		} else {
 			$("#timeline .play-parent")
 			.addClass("playing")
 			.text(msg("intro.animation.stop"));
+			$("#timeline .play-parent")
+			.addClass("playing");
 			if ($(this).data("clicked")) {
 				yearAnimation.start();
 			} else {
@@ -427,7 +431,7 @@ $(function() {
 
 	$(document).keyup(function(e) { if (e.keyCode == 27) selectCountry(null); });
 	background.on("click", function() { selectCountry(null); });
-
+	
 	function highlightCountry(code){
 		highlightedCountry = code;
 		chart_svg.selectAll("path.land")
@@ -438,7 +442,7 @@ $(function() {
 			if (b.id === code) return -1;
 			return 0;
 		});
-		updateTimeSeries();
+		//updateTimeSeries();
 	}
 
 	function showTooltip(e, html) {
@@ -492,63 +496,35 @@ $(function() {
 	}
 
 	function updateChoropleth() {
-
-		var gcountries = chart_svg.select("g.countries");
-
-		if (selectedCountry === null  &&  highlightedCountry == null) {
-			d3.select("#description").text("");
-			chart_svg.selectAll("path.land")
-			.classed("highlighted", false)
-			.classed("selected", false)
-			.transition()
-			.duration(50)
-			.attr("fill",landColor)
-			.attr("stroke", "none");
-
-			gcountries.selectAll("circle.country")
-			.attr("opacity", 1);
-
-		} else {
-
-			var code = ( selectedCountry !== null ? selectedCountry : highlightedCountry);
-
-			var max =
-				// calc max over time for all countries
-				d3.max(selectedDiseaseDeath, function(d) {
-					return d3.max(selectedYears.map(function(y) { return +d[y]; }));
-				});
-
-			selectedColor.domain([1, max]);
-
-
-			var diseaseByCountry = d3.nest()
-			.key(function(d) { return d.Code; })
-			.rollup(function(d) { return d[0]; })
-			.map(selectedDiseaseDeath);
-
-			chart_svg.selectAll("path.land")
-			.transition()
-			.duration(50)
-			.attr("fill", function(d) {
-
-				var m = diseaseByCountry[d.id];
-				if (m !== undefined) {
-					var val = m[selectedYear];
-					if (!isNaN(val) && (val > 0 /* for log scale to work*/)) return selectedColor(val);
-				}
-
-				return landColor;   //.darker(0.5);
+		
+		var max =
+			// calc max over time for all countries
+			d3.max(selectedDiseaseDeath, function(d) {
+				return d3.max(selectedYears.map(function(y) { return +d[y]; }));
 			});
 
-			gcountries.selectAll("circle.country")
-			.attr("opacity", function(d) {
-				if (d.iso3 === selectedCountry  ||
-						(selectedCountry == null && d.iso3 == highlightedCountry))
-					return 1;
-				else
-					return 0;
-			});
-		}
+		selectedColor.domain([1, max]);
+
+		var diseaseByCountry = d3.nest()
+		.key(function(d) { return d.Code; })
+		.rollup(function(d) { return d[0]; })
+		.map(selectedDiseaseDeath);
+
+
+		chart_svg.selectAll("path.land")
+		.transition()
+		.duration(50)
+		.attr("fill", function(d) {
+
+			var m = diseaseByCountry[d.id];
+			if (m !== undefined) {
+				var val = m[selectedYear];
+				if (!isNaN(val) && (val > 0 /* for log scale to work*/)) return selectedColor(val);
+			}
+
+			return landColor;   //.darker(0.5);
+		});
+		//updateColorLegend();
 	}
 
 	function updateColorLegend(){
@@ -647,6 +623,7 @@ $(function() {
 		}
 		d3.select("#timeline g.tseries .legend .hiv text").text(msg("details.tseries.legend.hiv"));
 
+
 		var rmax;
 		var dmax;
 		var cmax;
@@ -655,19 +632,47 @@ $(function() {
 		var tbSlice = d3.values(tb).slice();
 		var healthcareSlice = d3.values(healthcare).slice();
 
+
+
 		if (country==null){
-			rmax = d3.max(d3.values(hiv));
-			dmax = d3.max(d3.values(tb));
-			cmax = d3.max(d3.values(healthcare));
+
+			var hivArray = d3.values(hiv);
+			var tbArray = d3.values(tb);
+			var hcArray = d3.values(healthcare);
+
+			for(var i=0; i<hivArray.length; i++) { hivArray[i] = +hivArray[i] } 
+			for(var i=0; i<tbArray.length; i++) { tbArray[i] = +tbArray[i] } 
+			for(var i=0; i<hcArray.length; i++) { hcArray[i] = +hcArray[i] } 
+
+
+			rmax = d3.max(hivArray);
+			dmax = d3.max(tbArray);
+			cmax = d3.max(hcArray);
 		}else{
 			hivSlice = hivSlice.splice(1,hivSlice.length-1);
 			tbSlice = tbSlice.splice(0,tbSlice.length-2);
 			healthcareSlice = healthcareSlice.slice(1,healthcareSlice.length-1);
 
-			rmax = d3.max(d3.values(hivSlice));
-			dmax = d3.max(d3.values(tbSlice));
-			cmax = d3.max(d3.values(healthcareSlice));
+			var hivArray = d3.values(hivSlice);
+			var tbArray = d3.values(tbSlice);
+			var hcArray = d3.values(healthcareSlice);
+
+			for(var i=0; i<hivArray.length; i++) { hivArray[i] = +hivArray[i] } 
+			for(var i=0; i<tbArray.length; i++) { tbArray[i] = +tbArray[i] } 
+			for(var i=0; i<hcArray.length; i++) { hcArray[i] = +hcArray[i] } 
+
+
+			rmax = d3.max(hivArray);
+			dmax = d3.max(tbArray);
+			cmax = d3.max(hcArray);
+
+			console.log(d3.values(tbSlice));
+			console.log(dmax);
+			
 		}
+
+
+
 
 		var max;
 		if (isNaN(rmax)){
@@ -679,7 +684,7 @@ $(function() {
 		}
 
 		max *= 1.15;
-		
+
 		tseriesScale.domain([0, max]);
 		t1seriesScale.domain([0, cmax]);
 
