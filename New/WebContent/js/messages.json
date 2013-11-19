@@ -1,0 +1,154 @@
+{
+  "de" : {
+    "browser.not.supported" : "Leider werden die interaktiven Inhalte dieser Visualisierung von Ihrem Browser nicht unterstützt.",
+    "title" : "Geldsendungen von Migranten in ihre Heimat",
+    "details.hiv.title" : "HIV Cases (per 100,000)",
+    "details.tb.title" : "Tuberculosis Cases (per 100,000)",
+    "details.nourishment.title" : "Undernourishment Cases (per 100,000)",
+    "details.remittances.units" : "inflationsbereinigte US-Dollar, 2011",
+    "details.remittances.total" : "Gesamt",
+    "details.remittances.per-capita.title" : "pro Migrant",
+    "details.migrants.title.total" : "Migranten",
+    "details.migrants.title.selected-country" : "Migranten",
+    "details.aid.title.total" : "Entwicklungshilfe verteilt",
+    "details.aid.title.selected-country" : "Entwicklungshilfe erhalten",
+    "details.remittances.title" : "Geldsendungen von Migranten",
+    "details.remittances.units" : "inflationsbereinigte US-Dollar, 2011",
+    "details.remittances.total" : "Gesamt",
+    "details.remittances.per-capita.title" : "pro Migrant",
+    "per-capita" : "pro Migrant",
+    "search.country" : "Land",
+
+    "details.migrants.title" : "Migranten",
+    "details.aid.title" : "Entwicklungshilfe erhalten",
+    "money" : "${0}",
+    "amount.not-available" : "k.A.",
+    "amount.billions" : "{0} Billions",
+    "amount.billions.singular" : "{0} Billion",
+    "amount.millions" : "{0} Millions",
+    "amount.millions.singular" : "{0} Million",
+    "amount.thousands" : "{0},000",
+    "amount.normal" : "{0}",
+
+    "tooltip.migrants.number.from-a" : "{0} Migranten aus {1}",
+    "tooltip.remittances.amount" : "{0} <br> von Migranten erhalten",
+
+    "legend.migrants.number" : "Anzahl Migranten",
+    "legend.migrants.low" : "wenige",
+    "legend.migrants.high" : "viele",
+
+    "details.remittances.year" : "im Jahr {0}",
+    "details.tseries.legend.hiv" : "Infected HIV Cases (per 100,000)",
+    "details.tseries.legend.tb" : "Infected TB Cases (per 100,000)",
+    "details.tseries.legend.healthcare" : "Healthcare Expenditure per Capita (USD)",
+    "details.tseries.legend.nourishment" : "Undernourishment Cases (per 100,000)",
+
+    "sources" : "Sources",
+    "sources.hivtb.type" : "HIV, Nourishment & TB Statistics",
+    "sources.hivtb.name" : "Databank@Worldbank",
+    "sources.hivtb.info" : "UNAIDS Statistics used for AIDS infection cases worldwide. Nourishment statistics are taken at 5000 cases as a baseline by UN for certain countries as an estimate",
+    "sources.healthexp.type" : "Healthcare Expenditure",
+    "sources.healthexp.name" : "WHO",
+    "sources.healthexp.info" : "World Health Organization Statistics on expenditures into healthcare per capita. Exchange rates are PPP-adjusted",
+    "sources.aid.type" : "Entwicklungshilfe",
+    "sources.aid.name" : "OECD",
+    "sources.aid.info" : "In wenigen Fällen kommt im Datensatz aufgrund von Rückzahlungen früher erhaltener Entwicklungshilfekredite ein negatives Jahrestotal vor. Diese werden in der Grafik nicht dargestellt, sondern als 0 gewertet.",
+
+    "intro.prev" : "&nbsp;",
+    "intro.next" : "Next",
+    "intro.skip" : "Skip intro",
+    "intro.show" : "Show intro",
+    "intro.start-exploring" : "Start now",
+    "intro.animation.play" : "Play",
+    "intro.animation.stop" : "Pause",
+    
+    "intro.1.title" : "Living Strong",
+    "intro.1.text" : "What makes a healthy person? Do diseases reveal a certain trend to social support within a country? Healthcare is at the forefront of today's economies, but is the rest of the world ready to deal with the threats of today's ailments and diseases? By comparing healthcare expenditures to diseases representative of a certain social strata in countries, we seek to discover the patterns suggestive of effectiveness in healthcare policy impacts in different regions",
+
+    "intro.2.title" : "The HIV-Tuberculosis Conundrum",
+    "intro.2.text" : "The rich get richer, the poor poorer. This is a sad truth even in diseases, none more so than HIV and Tuberculosis. Mycobacterium avium complex (MAC) is a group of bacteria related to tuberculosis. These germs are very common in food, water, and soil. Almost everyone has them in their bodies. If you have a strong immune system, they don't cause problems. But they can cause serious illness in people with HIV, a look at the sub-Saharan states shows us how much this afflicts them",
+
+    "intro.3.title" : "A First-Class Healthcare System",
+    "intro.3.text" : "What makes a 1st world healthcare system? Tuberculosis is a good measure of whether a nation's healthcare infrastructure is up to mark on meeting the challenges of timely and quality healthcare. Seemingly, the Western nations leading these indices, especially the social-welfare oriented states of the EU and America",
+
+    "intro.4.title" : "Is there an Efficiency Point?",
+    "intro.4.text" : "Is a cradle-to-grave really required? Seemingly, our European neighbours have a 1st class esque healthcare system, but a closer look at Pan-American and Middle-East states shows comparable quality in handling diseases. Which begs the question, is overly excessive investment required in achieving a consumerate level of healthcare?",
+
+    "intro.5.title" : "Healthcare: The Arab Spring",
+    "intro.5.text" : "Iran, Syria, UAE, Saudi Arabia. These are countries that have achieved near optimal levels of disease and state-of-health management. With minimal cases, this prompts questions into the factors that contribute to such a strong state-of-health of the locals as well as the focus of public and private healthcare systems.",
+
+	"intro.6.title" : "Explore the data yourself",
+    "intro.6.text" : "Now it's time for you to start exploring the data yourself. Click on the countries you're interested in the most and slide along the time axis. For each country, you will see how diseases have affected them since 1990 and how have their governments have responded in terms of their investment into healthcare. The darker the colour, the more afflicted these populations are from these diseases."
+  },
+
+  "en" : {
+    "browser.not.supported" : "Unfortunately, your browser does not support the interactive features required by this visualization.",
+    "title" : "Worldwide remittance flows",
+    "details.remittances.title.total" : "sent to home country by migrants",
+    "details.remittances.title.selected-country" : "received from emigrants",
+    "details.remittances.units" : "inflation adjusted 2011 US $",
+    "details.remittances.total" : "Total",
+    "details.remittances.per-capita.title" : "per capita",
+    "per-capita" : "Per capita",
+    "search.country" : "Country",
+    "details.migrants.title.total" : "Migrants",
+    "details.migrants.title.selected-country" : "Emigrants",
+    "details.aid.title.total" : "Development aid received",
+    "details.aid.title.selected-country" : "Development aid received",
+    "details.migrants.title" : "Migrants",
+    "details.aid.title" : "Development aid received",
+    "money" : "${0}",
+    "amount.not-available" : "n/a",
+    "amount.billions" : "{0} billion",
+    "amount.billions.singular" : "{0} billion",
+    "amount.millions" : "{0} million",
+    "amount.millions.singular" : "{0} million",
+    "amount.thousands" : "{0},000",
+
+    "tooltip.migrants.number.from-a" : "{0} migrants from {1}",
+    "tooltip.remittances.amount" : "{0} sent to home country by emigrants",
+
+    "legend.migrants.number" : "Number of migrants",
+    "legend.migrants.low" : "Few",
+    "legend.migrants.high" : "Many",
+
+    "details.remittances.year" : "in {0}",
+    "details.tseries.legend.remittances" : "Remittances",
+    "details.tseries.legend.aid" : "Development aid",
+    "details.tseries.legend.remittances.per-capita" : "Remittances per capita",
+    "details.tseries.legend.aid.per-capita" : "Development aid per capita",
+
+    "sources" : "Sources",
+    "sources.remittances.type" : "Remittances",
+    "sources.remittances.name" : "World Bank",
+    "sources.remittances.info" : "All amounts have been inflation adjusted for 2011 based on the total DAC deflator.",
+    "sources.migration.type" : "Migration",
+    "sources.migration.name" : "World Bank",
+    "sources.migration.info" : "Migrant stocks are recorded only once per decade, for the years in-between, values have been interpolated linearly. For 2011 and 2012, numbers from 2010 as displayed.",
+    "sources.aid.type" : "Development aid",
+    "sources.aid.name" : "OECD",
+    "sources.aid.info" : "In the database, a few cases of negative annual totals occur due to redemption of earlier aid dept. Those values are displayed as 0 in the visualisation.",
+
+    "intro.prev" : "&nbsp;",
+    "intro.next" : "Next",
+    "intro.skip" : "Skip intro",
+    "intro.show" : "Show intro",
+    "intro.start-exploring" : "Start now",
+    "intro.animation.play" : "Play",
+    "intro.animation.stop" : "Pause",
+
+    "intro.1.title" : "The HIV-Tuberculosis Conundrum",
+    "intro.1.text" : "The rich get richer, the poor poorer. This is a sad truth even in diseases, none more so than HIV and Tuberculosis. Mycobacterium avium complex (MAC) is a group of bacteria related to tuberculosis. These germs are very common in food, water, and soil. Almost everyone has them in their bodies. If you have a strong immune system, they don't cause problems. But they can cause serious illness in people with HIV, a look at the sub-Saharan states shows us how much this afflicts them",
+
+    "intro.2.title" : "A First-Class Healthcare System",
+    "intro.2.text" : "What makes a 1st world healthcare system? Tuberculosis is a good measure of whether a nation's healthcare infrastructure is up to mark on meeting the challenges of timely and quality healthcare. Seemingly, the Western nations leading these indices, especially the social-welfare oriented states of the EU and America",
+
+    "intro.3.title" : "Is there an Efficiency Point?",
+    "intro.3.text" : "Is a cradle-to-grave really required? Seemingly, our European neighbours have a 1st class esque healthcare system, but a closer look at Pan-American and Middle-East states shows comparable quality in handling diseases. Which begs the question, is overly excessive investment required in achieving a consumerate level of healthcare?",
+
+    "intro.4.title" : "Explore the data yourself",
+    "intro.4.text" : "Now it's time for you to start exploring the data yourself. Click on the countries you're interested in the most and slide along the time axis. For each country, you will see how diseases have affected them since 1990 and how have their governments have responded in terms of their investment into healthcare. The darker the colour, the more afflicted these populations are from these diseases."
+
+  }
+
+}

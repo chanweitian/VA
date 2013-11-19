@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Living Strong</title>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="lib/d3.min.js" charset="utf-8"></script>
+<script src="lib/d3.geo.projection.v0.min.js"></script>
+<script src="lib/queue.min.js"></script>
+<script src="lib/idangerous.swiper-1.9.4.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+	<style>
+.interactive {
+	display: none;
+}
+
+.svg .interactive {
+	display: block;
+}
+
+.static {
+	text-align: center;
+}
+
+.static div {
+	padding: 10px;
+	color: white;
+	font-size: 10pt;
+}
+
+.static img {
+	border: 1px solid #ccc;
+	width: 80%;
+}
+
+.svg .static {
+	display: none;
+}
+</style>
+
+	<section id="visualisation">
+
+		<div id="details">
+			<div class="country">Overall</div>
+			<div class="sub">
+				<div class="year">2011</div>
+
+				<div class="grp tb">
+					<div class="value"></div>
+					<div class="title" data-msg="details.tb.title"></div>
+				</div>
+
+				<div class="grp hiv">
+					<div class="value"></div>
+					<div class="title" data-msg="details.hiv.title"></div>
+				</div>
+				
+				<div class="grp nourishment">
+					<div class="value"></div>
+					<div class="title" data-msg="details.nourishment.title"></div>
+				</div>
+
+				<div class="grp healthcare">
+					<div class="value">$123</div>
+					<div class="title">Healthcare Expenditure per Capita (USD)</div>
+				</div>
+
+				<div class="description"></div>
+
+			</div>
+
+			<div id="sources">
+        <span data-msg="sources"></span>:
+        <ul>
+          <li>
+            <span class="info" data-msg="sources.hivtb.type" data-info="sources.hivtb.info"></span>:
+            <a data-msg="sources.hivtb.name" target="_blank" href="http://databank.worldbank.org/data/views/variableSelection/selectvariables.aspx?source=health-nutrition-and-population-statistics#"></a>
+          </li>
+          <li>
+            <span class="info" data-msg="sources.healthexp.type" data-info="sources.healthexp.info"></span>:
+            <a data-msg="sources.healthexp.name" target="_blank" href="http://apps.who.int/gho/data/node.main.78?lang=en"></a>
+          </li>
+        </ul>
+
+      </div>
+
+		</div>
+
+		<div id="color-legend"></div>
+
+		<div id="chart"></div>
+		<div id="timeline">
+			<div class="play-parent">
+				<div class="play" data-msg="intro.animation.play"></div>
+			</div>
+		</div>
+		<div id="disease-radio">
+			<input type="radio" id="hiv" value="hiv" name="disease"	checked="checked" /><label for="hiv">HIV</label>
+			<input type="radio" id="tb" value="tb" name="disease" /><label for="tb">Tuberculosis</label>
+			<input type="radio" id="nourishment" value="nourishment" name="disease" /><label for="nourishment">Undernourishment</label>
+		</div>
+
+		<div id="show-intro" data-msg="intro.show"></div>
+
+		<div id="tooltip"></div>
+	</section>
+
+	<section id="guide" class="swiper-container">
+		<div class="swiper-wrapper">
+
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.1.title"></h2>
+						<p data-msg="intro.1.text"></p>
+						<a class="anim" data-msg="intro.animation.play"></a>
+					</div>
+					<a class="prev" data-msg="intro.prev" style="opacity: 0.1"></a> <a
+						class="next" data-msg="intro.next"></a>
+					<div class="pagination"></div>
+					<a class="skip" data-msg="intro.skip"></a>
+				</aside>
+			</div>
+
+
+
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.2.title"></h2>
+						<p data-msg="intro.2.text"></p>
+					</div>
+					<a class="prev" data-msg="intro.prev"></a> <a class="next"
+						data-msg="intro.next"></a>
+					<div class="pagination"></div>
+					<a class="skip" data-msg="intro.skip"></a>
+				</aside>
+			</div>
+
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.3.title"></h2>
+						<p data-msg="intro.3.text"></p>
+						<a class="anim" data-msg="intro.animation.play"></a>
+					</div>
+					<a class="prev" data-msg="intro.prev"></a> <a class="next"
+						data-msg="intro.next"></a>
+					<div class="pagination"></div>
+					<a class="skip" data-msg="intro.skip"></a>
+				</aside>
+			</div>
+			
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.4.title"></h2>
+						<p data-msg="intro.4.text"></p>
+						<a class="anim" data-msg="intro.animation.play"></a>
+					</div>
+					<a class="prev" data-msg="intro.prev"></a> <a class="next"
+						data-msg="intro.next"></a>
+					<div class="pagination"></div>
+					<a class="skip" data-msg="intro.skip"></a>
+				</aside>
+			</div>
+			
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.5.title"></h2>
+						<p data-msg="intro.5.text"></p>
+						<a class="anim" data-msg="intro.animation.play"></a>
+					</div>
+					<a class="prev" data-msg="intro.prev"></a> <a class="next"
+						data-msg="intro.next"></a>
+					<div class="pagination"></div>
+					<a class="skip" data-msg="intro.skip"></a>
+				</aside>
+			</div>
+
+			<div class="swiper-slide">
+				<aside>
+					<div class="content">
+						<h2 data-msg="intro.6.title"></h2>
+						<p data-msg="intro.6.text"></p>
+					</div>
+					<a class="prev" data-msg="intro.prev"></a> <a class="last"
+						data-msg="intro.start-exploring"></a>
+				</aside>
+			</div>
+
+
+		</div>
+	</section>
+
+	<script src="lib/fit-projection.js"></script>
+	<script src="js/map.js"></script>
+	<script src="js/msg.js"></script>
+</body>
+</html>
