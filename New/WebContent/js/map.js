@@ -275,7 +275,15 @@ $(document).ready(function() {
 		showTB();
 		showHealthcare();
 	};
-
+	
+	function hideNourishment() {
+		d3.selectAll("#timeline g.tseries .nourishment").transition().duration(300).attr("opacity", "0");
+	}
+	
+	function showNourishment() {
+		d3.selectAll("#timeline g.tseries .nourishment").transition().duration(300).attr("opacity", "1.0");
+	}
+	
 	function hideHIV() {
 		d3.selectAll("#timeline g.tseries .hiv").transition().duration(300).attr("opacity", "0");
 	}
@@ -314,6 +322,7 @@ $(document).ready(function() {
 			showHIV();
 			showTB();
 			showHealthcare();
+			showNourishment();
 			break;
 		
 		case 1: // The HIV-Tuberculosis Conundrum
@@ -323,6 +332,7 @@ $(document).ready(function() {
 			hideHealthcare();
 			showHIV();
 			showTB();
+			hideNourishment();
 			break;
 
 		case 2: // A First-Class Healthcare System
@@ -332,6 +342,7 @@ $(document).ready(function() {
 			showHealthcare();
 			showHIV();
 			showTB();
+			showNourishment();
 			break;
 
 		case 3:  // Is there an Efficiency Point?
@@ -341,15 +352,17 @@ $(document).ready(function() {
 			hideTB();
 			hideHIV();
 			showHealthcare();
+			hideNourishment();
 			break;
 			
-		case 4: //  Explore the data yourself
+		case 4: //  The Arab Spring
 			$("#color-legend").fadeIn();
 			selectCountry("IRN", true);
 			selectYear(2011);
 			showHIV();
 			showTB();
 			showHealthcare();
+			showNourishment();
 			break;
 
 		case 5: //  Explore the data yourself
@@ -359,6 +372,7 @@ $(document).ready(function() {
 			showHIV();
 			showTB();
 			showHealthcare();
+			showNourishment();
 			break;
 		}
 
@@ -661,11 +675,12 @@ $(document).ready(function() {
 		var rmax;
 		var dmax;
 		var cmax;
+		var nmax;
 
 		var hivSlice = d3.values(hiv).slice();
 		var tbSlice = d3.values(tb).slice();
 		var healthcareSlice = d3.values(healthcare).slice();
-
+		var nourishmentSlice = d3.values(nourishment).slice();
 
 
 		if (country==null){
@@ -673,35 +688,38 @@ $(document).ready(function() {
 			var hivArray = d3.values(hiv);
 			var tbArray = d3.values(tb);
 			var hcArray = d3.values(healthcare);
+			var nourishArray = d3.values(nourishment);
 
 			for(var i=0; i<hivArray.length; i++) { hivArray[i] = +hivArray[i] } 
 			for(var i=0; i<tbArray.length; i++) { tbArray[i] = +tbArray[i] } 
 			for(var i=0; i<hcArray.length; i++) { hcArray[i] = +hcArray[i] } 
-
+			for(var i=0; i<nourishArray.length; i++) { nourishArray[i] = +nourishArray[i] } 
 
 			rmax = d3.max(hivArray);
 			dmax = d3.max(tbArray);
 			cmax = d3.max(hcArray);
+			nmax = d3.max(nourishArray);
 		}else{
 			hivSlice = hivSlice.splice(1,hivSlice.length-1);
 			tbSlice = tbSlice.splice(0,tbSlice.length-2);
 			healthcareSlice = healthcareSlice.slice(1,healthcareSlice.length-1);
-
+			nourishmentSlice = nourishmentSlice.slice(1,nourishmentSlice.length-1);
+			
 			var hivArray = d3.values(hivSlice);
 			var tbArray = d3.values(tbSlice);
 			var hcArray = d3.values(healthcareSlice);
+			var nourishArray = d3.values(nourishmentSlice);
 
 			for(var i=0; i<hivArray.length; i++) { hivArray[i] = +hivArray[i] } 
 			for(var i=0; i<tbArray.length; i++) { tbArray[i] = +tbArray[i] } 
 			for(var i=0; i<hcArray.length; i++) { hcArray[i] = +hcArray[i] } 
-
+			for(var i=0; i<nourishArray.length; i++) { nourishArray[i] = +nourishArray[i] } 
 
 			rmax = d3.max(hivArray);
 			dmax = d3.max(tbArray);
 			cmax = d3.max(hcArray);
+			nmax = d3.max(nourishArray);
 		}
-
-
 
 
 		var max;
@@ -709,8 +727,10 @@ $(document).ready(function() {
 			max = dmax;
 		} else if (isNaN(dmax)){
 			max = rmax;
+		} else if (isNaN(nmax)){
+			max = nmax;
 		} else {
-			max = Math.max(rmax, dmax);
+			max = Math.max(rmax, dmax);//add in nmax to visualize nourishment values
 		}
 
 		max *= 1.15;
@@ -722,6 +742,7 @@ $(document).ready(function() {
 
 		renderTimeSeries("tb", tb);
 		renderTimeSeries("hiv", hiv);
+		//renderTimeSeries("nourishment", nourishment);
 		renderTimeSeries1("healthcare", healthcare);
 
 		timeline.select("g.magnitudeAxis").call(magnitudeAxis);
